@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- 	<package name="hr" 	namespace="/"  extends="struts-default">
+		<action name="login" class="loginAction">
+			<result name="success">index.jsp</result>
+			<result name="input">login2.jsp</result>
+		</action>
+	</package> -->
+	<package name="json" 	namespace="/json"  extends="json-default">
+		<action name="login" class="loginAction">
+			<result type="json">
+				<param name="root">flag</param>
+			</result>
+		</action>
+	<!-- 职称信息 -->
+	<!-- 获取所有的职称信息 -->
+		<action name="titleAction" class="titleAction" method="allTitleJson">
+			<result type="json">
+				<param name="root">title</param>
+			</result>
+		</action>
+	<!-- 添加职称信息 -->	
+		<action name="addTitleAction" class="titleAction" method="addTitle">
+			<result type="json">
+				<param name="root">dataMap_addTitle</param>
+			</result>
+		</action>
+	<!-- 删除职称信息 -->
+		<action name="deleteTitleAction" class="titleAction" method="deleteTitle">
+			<result type="json">
+				<param name="root">dataMap_deleteTitle</param>
+			</result>
+		</action>
+	<!-- 修改职称信息 -->
+		<action name="editTitleAction" class="titleAction" method="editTitle">
+			<result type="json">
+				<param name="root">dataMap_editTitle</param>
+			</result>
+		</action>
+	<!-- 查询职称信息 -->
+		<action name="findTitleAction" class="titleAction" method="findByTitleName">
+			<result type="json">
+				<param name="root">title</param>
+			</result>
+		</action>
+	<!-- 岗位信息 -->
+	<!-- 获取所有岗位信息 -->
+	<action name="allPositionAction" class="positionAction" method="allPosition">
+		<result type="json">
+			<param name="root">allPosition</param>
+		</result>
+	</action>
+	<!-- 添加岗位信息 -->
+		<action name="addPositionAction" class="positionAction" method="addPosition">
+			<result type="json">
+				<param name="root">dataMap_addPosition</param>
+			</result>
+		</action>
+	<!-- 删除岗位信息 -->
+		<action name="deletePositionAction" class="positionAction" method="deletePosition">
+			<result type="json">
+				<param name="root">dataMap_deletePosition</param>
+			</result>
+		</action>
+	<!-- 修改岗位信息 -->
+		<action name="editPositionAction" class="positionAction" method="editPosition">
+			<result type="json">
+				<param name="root">dataMap_editPosition</param>
+			</result>
+		</action>
+	<!-- 查询岗位信息 -->
+		<action name="findPositionAction" class="positionAction" method="findPostionByName">
+			<result type="json">
+				<param name="root">allPosition</param>
+			</result>
+		</action>
+	<!-- 获取学历列表 -->
+		<action name="eduList" class="eduAction" method="findEduList">
+			<result type="json">
+				<param name="root">eduList</param>
+			</result>
+		</action>
+	<!-- 获取民族列表 -->
+		<action name="nationList" class="nationAction" method="findNationList">
+			<result type="json">
+				<param name="root">nationList</param>
+			</result>
+		</action>
+	<!-- 获取政治面貌列表 -->
+		<action name="partyList" class="partyAction" method="findPartyList">
+			<result type="json">
+				<param name="root">partyList</param>
+			</result>
+		</action>
+	<!-- 获取健康状况列表 -->
+		<action name="healthList" class="healthAction" method="findHealthList">
+			<result type="json">
+				<param name="root">healthList</param>
+			</result>
+		</action>
+	<!-- 获取工作状态列表 -->
+		<action name="statusList" class="statusAction" method="findStatusList">
+			<result type="json">
+				<param name="root">statusList</param>
+			</result>
+		</action>
+	<!-- 获取户口类型列表 -->
+		<action name="regList" class="regAction" method="findRegList">
+			<result type="json">
+				<param name="root">regList</param>
+			</result>
+		</action>
+	<!-- 获取职称名称列表，在已有的Title表中获得 -->
+		<action name="titleNameList" class="titleAction" method="titleNameList">
+			<result type="json">
+				<param name="root">titleNameList</param>
+			</result>
+		</action>
+	<!-- 获取岗位名称列表，在已有的Positon表中获得 -->
+		<action name="positionNameList" class="titleAction" method="positionNameList">
+			<result type="json">
+				<param name="root">positionNameList</param>
+			</result>
+		</action>
+	
+	<!-- 新增员工 -->
+		<action name="addEmployAction" class="employAction" method="addStaff">
+			<result type="json">
+				<param name="root">dataMap_addStaff</param>
+			</result>
+		</action>
+	<!-- 查询员工 -->
+		<action name="staffInfoAction" class="employAction" method="findStaff">
+			<result type="json">
+				<param name="root">employee</param>
+			</result>
+		</action>
+	<!-- 修改员工 -->
+		<action name="editEmployAction" class="employAction" method="editEmploy">
+			<result type="json">
+				<param name="root">dataMap_editStaff</param>
+			</result>
+		</action>
+	</package>
+</struts>

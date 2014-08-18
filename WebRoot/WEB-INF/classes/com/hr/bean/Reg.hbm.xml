@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hr.bean.Reg" table="t_reg_type">
+		<id name="regId" type="java.lang.Integer" column="REG_TYPE_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="regContent" type="string" column="REG_TYPE_CONTEXT"></property>
+	</class>
+</hibernate-mapping>

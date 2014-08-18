@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hr.bean.Position" table="t_post">
+		<id name="positionId" type="java.lang.Integer" column="N_POST_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="positionName" type="string" column="VC_POST_NAME"></property>
+		<property name="higherPosition" type="string" column="N_PARENT"></property>
+		<property name="positionDuty" type="string" column="VC_DUTY"></property>
+		<property name="positionQualification" type="string" column="VC_QUALIFICATION"></property>
+		<property name="positionPower" type="string" column="VC_PURVIEW"></property>
+		<property name="positionContent" type="string" column="VC_WORK_CONTENT"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hr.bean.Employee" table="t_employee">
+		<id name="employId" type="java.lang.Integer" column="N_EMP_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="employDept" type="string" column="N_DEPT"></property>
+		<property name="employtTitle" type="string" column="N_TITLE"></property>
+		<property name="employPosi" type="string" column="N_POST"></property>
+		<property name="employName" type="string" column="VC_EMP_NAME"></property>
+		<property name="employNo" type="string" column="VC_EMP_CODE"></property>
+		<property name="employSex" type="string" column="N_GENDER"></property>
+		<property name="employIdCard" type="string" column="VC_IDCARD_CODE"></property>
+		<property name="employBirthday" type="string" column="D_BIRTHDAY"></property>
+		<property name="employPlace" type="string" column="VC_NATIVE_PLACE"></property>
+		<property name="employEdu" type="string" column="N_EDU_LEVEL"></property>
+		<property name="employNation" type="string" column="N_NANTION"></property>
+		<property name="employParty" type="string" column="N_PARTY"></property>
+		<property name="employHealth" type="string" column="N_HEALTH"></property>
+		<property name="employType" type="string" column="N_REG_TYPE"></property>
+		<property name="employStatus" type="string" column="N_STATUS"></property>
+	</class>
+</hibernate-mapping>

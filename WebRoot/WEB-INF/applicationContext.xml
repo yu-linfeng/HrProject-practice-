@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- Mysql数据库链接 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/hr"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1"></property>
+		<property name="maxActive" value="100"></property>
+		<property name="maxIdle" value="30"></property>
+		<property name="maxWait" value="500"></property>
+		<property name="defaultAutoCommit" value="true"></property>
+	</bean>
+
+	<!-- 将数据源dataSource注入到SessionFactory；配置Hibernate属性；配置hbm映射文件 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>			
+		<property name="mappingResources">
+			<list>
+				<value>com/hr/bean/User.hbm.xml</value>
+				<value>com/hr/bean/Title.hbm.xml</value>
+				<value>com/hr/bean/Position.hbm.xml</value>
+				<value>com/hr/bean/EduLevel.hbm.xml</value>
+				<value>com/hr/bean/Nation.hbm.xml</value>
+				<value>com/hr/bean/Party.hbm.xml</value>
+				<value>com/hr/bean/Health.hbm.xml</value>
+				<value>com/hr/bean/Status.hbm.xml</value>
+				<value>com/hr/bean/Reg.hbm.xml</value>
+				<value>com/hr/bean/Employee.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 将SessionFactory注入到DAO -->
+	<bean id="userDao" class="com.hr.dao.impl.UserDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="titleDao" class="com.hr.dao.impl.TitleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="positionDao" class="com.hr.dao.impl.PositionDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="eduLevelDao" class="com.hr.dao.impl.EduLevelDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="nationDao" class="com.hr.dao.impl.NationDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="partyDao" class="com.hr.dao.impl.PartyDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="healthDao" class="com.hr.dao.impl.HealthDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="statusDao" class="com.hr.dao.impl.StatusDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="regDao" class="com.hr.dao.impl.RegDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="employeeDao" class="com.hr.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	
+	<!-- 将DAO注入到service -->
+	<bean name="loginService" class="com.hr.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean name="titleService" class="com.hr.service.impl.TitleServiceImpl">
+		<property name="titleDao" ref="titleDao"></property>
+	</bean>
+	<bean name="positionService" class="com.hr.service.impl.PositionServiceImpl">
+		<property name="positionDao" ref="positionDao"></property>
+	</bean>
+	<bean name="eduLevelService" class="com.hr.service.impl.EduLevelServiceImpl">
+		<property name="eduLevelDao" ref="eduLevelDao"></property>
+	</bean>
+	<bean name="nationService" class="com.hr.service.impl.NationServiceImpl">
+		<property name="nationDao" ref="nationDao"></property>
+	</bean>
+	<bean name="partyService" class="com.hr.service.impl.PartyServiceImpl">
+		<property name="partyDao" ref="partyDao"></property>
+	</bean>
+	<bean name="healthService" class="com.hr.service.impl.HealthServiceImpl">
+		<property name="healthDao" ref="healthDao"></property>
+	</bean>
+	<bean name="statusService" class="com.hr.service.impl.StatusServiceImpl">
+		<property name="statusDao" ref="statusDao"></property>
+	</bean>
+	<bean name="regService" class="com.hr.service.impl.RegServiceImpl">
+		<property name="regDao" ref="regDao"></property>
+	</bean>
+	<bean name="employeeService" class="com.hr.service.impl.EmployeeServiceImpl">
+		<property name="employeeDao" ref="employeeDao"></property>
+	</bean>
+ 
+	<!-- action配置 -->
+	<bean id="loginAction" class="com.hr.action.LoginAction">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+	<bean id="titleAction" class="com.hr.action.TitleAction">
+		<property name="titleService" ref="titleService"></property>
+	</bean>
+	<bean id="positionAction" class="com.hr.action.PositionAction">
+		<property name="positionService" ref="positionService"></property>
+	</bean>
+	<bean id="eduAction" class="com.hr.action.EduAction">
+		<property name="eduLevelService" ref ="eduLevelService"></property>
+	</bean>
+	<bean id="nationAction" class="com.hr.action.NationAction">
+		<property name="nationService" ref="nationService"></property>
+	</bean>
+	<bean id="partyAction" class="com.hr.action.PartyAction">
+		<property name="partyService" ref="partyService"></property>
+	</bean>
+	<bean id="healthAction" class="com.hr.action.HealthAction">
+		<property name="healthService" ref="healthService"></property>
+	</bean>
+	<bean id="statusAction" class="com.hr.action.StatusAction">
+		<property name="statusService" ref="statusService"></property>
+	</bean>
+	<bean id="regAction" class="com.hr.action.RegAction">
+		<property name="regService" ref="regService"></property>
+	</bean>
+	<bean id="employAction" class="com.hr.action.EmployeeAction">
+		<property name="employeeService" ref="employeeService"></property>
+	</bean>
+</beans>

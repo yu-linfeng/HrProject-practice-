@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hr.bean.Health" table="t_health">
+		<id name="healthId" type="java.lang.Integer" column="HEALTH_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="healthContent" type="string" column="HEALTH_CONTEXT"></property>
+	</class>
+</hibernate-mapping>

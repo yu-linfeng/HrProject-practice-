@@ -1,0 +1,54 @@
+
+
+
+.loginButton {
+	background-color:white;
+	border-radius:42px;
+	border:7px solid #8f8b8f;
+	display:inline-block;
+	cursor:pointer;
+	color:#0f010f;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:15px 10px;
+	text-decoration:none;
+	text-shadow:6px 3px 50px #edf2f7;
+	margin-left:30px;
+	margin-top:10px;
+}
+.loginButton:hover {
+	background-color:red;
+}
+.loginButton:active {
+	position:relative;
+	top:3px;
+}
+.pclass{
+	text-align:center;
+	color:white;
+	font-family:"微软雅黑";
+	font-size:15pt;
+}
+.pclass2{
+	text-align:center;
+	color:white;
+	font-family:"微软雅黑";
+	font-size:15pt;
+}
+.tbClass{
+	margin-left:50px;
+}
+.input{
+	background-color:transparent;
+	border:#ffffff;
+}
+.pclass4{
+	color:white;
+	font-size:40pt;
+	font-family:"楷体";
+	
+}
+
+
+

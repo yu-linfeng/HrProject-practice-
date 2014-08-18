@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hr.bean.Status" table="t_status">
+		<id name="statusId" type="java.lang.Integer" column="STATUS_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="statusContent" type="string" column="STATUS_CONTEXT"></property>
+	</class>
+</hibernate-mapping>
